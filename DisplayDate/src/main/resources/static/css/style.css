@@ -1,0 +1,10 @@
+body{
+    display: flex;
+    justify-content: space-evenly;
+}
+.date{
+    color: blue;
+}
+.time{
+    color: green;
+}

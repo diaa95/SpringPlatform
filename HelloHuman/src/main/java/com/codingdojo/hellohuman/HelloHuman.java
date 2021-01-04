@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/human")
 public class HelloHuman {
     // 1. Annotation
-    @RequestMapping("/")
+    @RequestMapping("")
     // 3. Method that maps to the request route above
     public String hello(@RequestParam(value = "first_name", required = false) String firstname, @RequestParam(value = "last_name", required = false) String lastname) { // 3
         if (firstname == null) {
