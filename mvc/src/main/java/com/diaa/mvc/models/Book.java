@@ -1,8 +1,10 @@
 package com.diaa.mvc.models;
 
-import java.util.Date;
-import com.sun.istack.NotNull;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
 
 
 @Entity
@@ -12,9 +14,14 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    @Size(min = 5, max = 200)
     private String title;
+    @NotNull
+    @Size(min = 5, max = 200)
     private String description;
+    @Size(min = 3, max = 40)
     private String language;
+    @Min(100)
     private Integer numberOfPages;
     private Date createdAt;
     private Date updatedAt;
