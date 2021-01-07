@@ -25,7 +25,10 @@ public class NinjaGoldController {
 
     @RequestMapping("/play")
     public String play(HttpSession session){
-        return "index.jsp";
+        if((Integer)session.getAttribute("yourGold") > -10){
+            return "index.jsp";
+        }
+        else return "prison.jsp";
     }
 
     @RequestMapping(value = "/processMoney", method = RequestMethod.POST)
