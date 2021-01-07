@@ -86,6 +86,9 @@
         </div>
     </main>
     <footer>
+        <form action="/">
+            <button type="submit">Reset</button>
+        </form>
         <h3>Activities:</h3>
         <div class="log">
             <c:forEach var="log" items="${sessionScope.log}">
