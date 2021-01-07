@@ -33,27 +33,42 @@ public class NinjaGoldController {
         int count = (Integer) session.getAttribute("count") + 1;
         session.setAttribute("count", count);
         Random rand = new Random();
-        if (form.equals("farm")) {
-            int num = rand.nextInt(10);
-            num += 10;
-            int gold = (Integer) session.getAttribute("yourGold");
-            session.setAttribute("yourGold", gold + num);
-            ArrayList<Log> list = (ArrayList) session.getAttribute("log");
-            list.add(new Log(num, "farm"));
-            return "redirect:/play";
-        }else if (form.equals("casino")) {
-            int num = rand.nextInt(50);
-            boolean b = rand.nextBoolean();
-            if (!b){
-                num = -1 * num;
+        int gold = (Integer) session.getAttribute("yourGold");
+        ArrayList<Log> list = (ArrayList) session.getAttribute("log");
+        switch (form) {
+            case "farm": {
+                int num = rand.nextInt(10);
+                num += 10;
+                session.setAttribute("yourGold", gold + num);
+                list.add(new Log(num, "farm"));
+                return "redirect:/play";
             }
-            int gold = (Integer) session.getAttribute("yourGold");
-            session.setAttribute("yourGold", gold + num);
-            ArrayList<Log> list = (ArrayList) session.getAttribute("log");
-            list.add(new Log(num, "casino"));
-            return "redirect:/play";
-        } else {
-            return "redirect:/play";
+            case "cave": {
+                int num = rand.nextInt(5);
+                num += 5;
+                session.setAttribute("yourGold", gold + num);
+                list.add(new Log(num, "cave"));
+                return "redirect:/play";
+            }
+            case "house": {
+                int num = rand.nextInt(3);
+                num += 2;
+                session.setAttribute("yourGold", gold + num);
+                list.add(new Log(num, "house"));
+                return "redirect:/play";
+            }
+            case "casino": {
+                int num = rand.nextInt(50);
+                boolean b = rand.nextBoolean();
+                if (!b) {
+                    num = -num;
+                }
+                session.setAttribute("yourGold", gold + num);
+                list.add(new Log(num, "casino"));
+                return "redirect:/play";
+            }
+            default:
+                return "redirect:/play";
         }
     }
 }

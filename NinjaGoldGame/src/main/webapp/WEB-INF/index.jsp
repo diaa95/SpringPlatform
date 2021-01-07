@@ -10,12 +10,45 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+
+        }
+        header div{
+            text-align: center;
+            line-height: normal;
+            margin-left: 15px;
+            min-width: 100px;
+            border: 2px solid gold;
+        }
+        main{
+            display: flex;
+            justify-content: space-between;
+        }
+        main div{
+            padding: 10px 0px;
+            text-align: center;
+            width: 250px;
+            border: 2px solid black;
+        }
+        footer div{
+            height: 160px;
+            width: 100%;
+            overflow-y: auto;
+
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <h2>your Gold</h2>
-
         <div><c:out value="${sessionScope.yourGold}"/> &#x1F3C5;</div>
     </header>
     <main>
