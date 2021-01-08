@@ -18,7 +18,6 @@ public class BooksController {
         this.bookService = bookService;
     }
 
-
     @RequestMapping("/books")
     public String index(Model model) {
         List<Book> books = bookService.allBooks();
