@@ -26,7 +26,7 @@
         <tr>
             <td><c:out value="${person.firstname}"/></td>
             <td><c:out value="${person.lastname}"/></td>
-            <td><c:out value="${person.license.getGetStringNumber()}"/></td>
+            <td><c:out value="${person.license.getStringNumber}"/></td>
         </tr>
     </c:forEach>
     </tbody>

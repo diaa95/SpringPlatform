@@ -2,6 +2,8 @@ package com.diaa.driverslicense.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,8 +13,14 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(min = 3, max = 45)
     private String firstname;
+
+    @NotNull
+    @Size(min = 3, max = 45)
     private String lastname;
+
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;

@@ -3,6 +3,8 @@ package com.diaa.driverslicense.models;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,13 +15,20 @@ public class License {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Min(1)
     private Integer number;
+
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expirationDate;
     private String state;
+
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;
+
+    @NotNull
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="person_id")
     private Person person;
