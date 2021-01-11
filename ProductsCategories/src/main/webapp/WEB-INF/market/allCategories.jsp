@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Diaa
-  Date: 1/10/2021
-  Time: 7:02 AM
+  Date: 1/11/2021
+  Time: 2:58 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,21 +12,17 @@
     <title>Title</title>
 </head>
 <body>
-<h1>All People</h1>
+<h1>All Categories</h1>
 <table>
     <thead>
     <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>License #</th>
+        <th>Category's Name</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${persons}" var="person">
+    <c:forEach items="${categories}" var="category">
         <tr>
-            <td><c:out value="${person.firstname}"/></td>
-            <td><c:out value="${person.lastname}"/></td>
-            <td><c:out value="${person.license.getStringNumber}"/></td>
+            <td><a href="categories/${category.id}"><c:out value="${category.name}"/></a></td>
         </tr>
     </c:forEach>
     </tbody>

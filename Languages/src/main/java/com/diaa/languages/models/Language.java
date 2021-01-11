@@ -20,6 +20,7 @@ public class Language {
     @NotNull
     @Size(min = 3, max = 200)
     private String creator;
+
     @NotNull
     private String version;
 
@@ -29,6 +30,8 @@ public class Language {
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
+
+
     public Language() {
     }
 
