@@ -1,33 +1,33 @@
-package com.diaa.dojosandninjas.models;
-
-import com.sun.istack.NotNull;
-import net.bytebuddy.implementation.auxiliary.AuxiliaryType;
+package com.diaa.overflow.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "dojos")
-public class Dojo {
+@Table(name = "answers")
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 2, max = 45)
-    private String name;
+    @Size(min = 1,max = 255)
+    private String context;
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
-    @OneToMany(mappedBy="dojo", fetch = FetchType.LAZY)
-    private List<Ninja> ninjas;
 
-    public Dojo() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="question_id")
+    private Question question;
+
+    public Answer() {
     }
 
-    public Dojo(String name) {
-        this.name = name;
+    public Answer(String context, Question question) {
+        this.context = context;
+        this.question = question;
     }
 
     public Long getId() {
@@ -38,12 +38,12 @@ public class Dojo {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getContext() {
+        return context;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setContext(String context) {
+        this.context = context;
     }
 
     public Date getCreatedAt() {
@@ -62,12 +62,12 @@ public class Dojo {
         this.updatedAt = updatedAt;
     }
 
-    public List<Ninja> getNinjas() {
-        return ninjas;
+    public Question getQuestion() {
+        return question;
     }
 
-    public void setNinjas(List<Ninja> ninjas) {
-        this.ninjas = ninjas;
+    public void setQuestion(Question question) {
+        this.question = question;
     }
     @PrePersist
     protected void onCreate() {
@@ -77,5 +77,4 @@ public class Dojo {
     protected void onUpdate() {
         this.updatedAt = new Date();
     }
-
 }
