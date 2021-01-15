@@ -31,8 +31,8 @@ public class QuoraController {
         return "addQuestion.jsp";
     }
     @RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
-    public String addQuestion(@Valid  @ModelAttribute("question") Question question,@Valid @ModelAttribute("tag") Tag tag, BindingResult result){
-        if(result.hasErrors()){
+    public String addQuestion(@Valid  @ModelAttribute("question") Question question,BindingResult result1,@Valid @ModelAttribute("tag") Tag tag, BindingResult result){
+        if(result.hasErrors() || result1.hasErrors()){
             return "addQuestion.jsp";
         }else {
             quoraService.newQuestion(question, tag);
