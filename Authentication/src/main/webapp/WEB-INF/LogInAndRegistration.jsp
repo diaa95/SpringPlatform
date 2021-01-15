@@ -29,17 +29,23 @@
     <input type="submit" value="Register!"/>
 </form:form>
 
+<p><form:errors path="logIn.*"/></p>
 <form:form method="POST" action="/logIn" modelAttribute="logIn">
     <p>
-        <form:label path="existingEmail">Email:</form:label>
-        <form:input type="email" path="existingEmail"/>
+        <form:label path="registeredEmail">Email:</form:label>
+        <form:input type="email" path="registeredEmail"/>
     </p>
     <p>
-        <form:label path="hash">Password:</form:label>
-        <form:password path="hash"/>
+        <form:label path="registeredPassword">Password:</form:label>
+        <form:password path="registeredPassword"/>
     </p>
-    <input type="submit" value="Register!"/>
+    <input type="submit" value="LogIn!"/>
 </form:form>
+<%--<form action="/logIn" method="post">--%>
+<%--    <label>Email: <input type="email" name="email"></label>--%>
+<%--    <label>Password:<input type="password" name="password"></label>--%>
+<%--    <button type="submit">Log In</button>--%>
+<%--</form>--%>
 
 </body>
 </html>

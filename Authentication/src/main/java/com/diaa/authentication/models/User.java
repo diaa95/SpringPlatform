@@ -1,6 +1,7 @@
 package com.diaa.authentication.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -10,6 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
+    @Size(min = 5, message = "At least 5 characters")
     private String password;
     @Transient
     private String passwordConfirmation;

@@ -5,30 +5,30 @@ import javax.validation.constraints.Email;
 
 public class LogIn {
     @Email
-    private String existingEmail;
-    private String hash;
+    private String registeredEmail;
+    private String registeredPassword;
 
     public LogIn() {
     }
 
-    public LogIn(String existingEmail, String hash) {
-        this.existingEmail = existingEmail;
-        this.hash = hash;
+    public LogIn(String registeredEmail, String registeredPassword) {
+        this.registeredEmail = registeredEmail;
+        this.registeredPassword = registeredPassword;
     }
 
-    public String getExistingEmail() {
-        return existingEmail;
+    public String getRegisteredEmail() {
+        return registeredEmail;
     }
 
-    public void setExistingEmail(String existingEmail) {
-        this.existingEmail = existingEmail;
+    public void setRegisteredEmail(String registeredEmail) {
+        this.registeredEmail = registeredEmail;
     }
 
-    public String getHash() {
-        return hash;
+    public String getRegisteredPassword() {
+        return registeredPassword;
     }
 
-    public void setHash(String hash) {
-        this.hash = hash;
+    public void setRegisteredPassword(String registeredPassword) {
+        this.registeredPassword = registeredPassword;
     }
 }
