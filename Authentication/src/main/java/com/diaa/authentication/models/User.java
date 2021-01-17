@@ -1,6 +1,7 @@
 package com.diaa.authentication.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -11,7 +12,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    @Size(min = 5, message = "At least 5 characters")
+    @Size(min = 8, message = "At least 8 characters")
+    @Pattern(regexp = "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8}$",message = "Weak")
     private String password;
     @Transient
     private String passwordConfirmation;

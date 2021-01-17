@@ -1,4 +1,4 @@
-package com.diaa.authentication.validator;
+package com.diaa.authentication.validators;
 
 import com.diaa.authentication.models.User;
 import com.diaa.authentication.services.UserService;
@@ -15,22 +15,22 @@ public class UserValidator implements Validator {
     }
 
     @Override
-     public boolean supports(Class<?> userClass){
-         return User.class.equals(userClass);
-     }
+    public boolean supports(Class<?> userClass) {
+        return User.class.equals(userClass);
+    }
 
-     @Override
-    public void validate(Object target, Errors errors){
+    @Override
+    public void validate(Object target, Errors errors) {
         User user = (User) target;
-        if(!user.getPasswordConfirmation().equals(user.getPassword())){
+        if (!user.getPasswordConfirmation().equals(user.getPassword())) {
             errors.rejectValue("passwordConfirmation", "Match");
         }
-        if(userService.findByEmail(user.getEmail()) != null){
+        if (userService.findByEmail(user.getEmail()) != null) {
             errors.rejectValue("email", "Registered");
         }
 //        if(user.getPassword().toLowerCase().equals(user.getPassword())){
 //            errors.rejectValue("password", "Weak");
 //        }
-     }
+    }
 
 }

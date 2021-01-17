@@ -1,4 +1,4 @@
-package com.diaa.authentication.validator;
+package com.diaa.authentication.validators;
 
 
 import com.diaa.authentication.models.LogIn;

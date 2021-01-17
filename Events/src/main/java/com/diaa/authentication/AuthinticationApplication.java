@@ -8,11 +8,12 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class AuthenticationApplication {
+public class AuthinticationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthenticationApplication.class, args);
+        SpringApplication.run(AuthinticationApplication.class, args);
     }
+
     @Bean
     public TomcatServletWebServerFactory servletContainer() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
@@ -25,4 +26,5 @@ public class AuthenticationApplication {
         tomcat.addAdditionalTomcatConnectors(ajpConnector);
         return tomcat;
     }
+
 }

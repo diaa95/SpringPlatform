@@ -19,12 +19,12 @@
                 }else
                     $('#message').html('Strong').css('color', 'green');
             });
-        $('#confirm_password').on('keyup', function () {
-            if ($('#password').val() == $('#confirm_password').val()) {
-                $('#message1').html('Matching').css('color', 'green');
-            } else
-                $('#message1').html('Not Matching').css('color', 'red');
-        });
+            $('#confirm_password').on('keyup', function () {
+                if ($('#password').val() == $('#confirm_password').val()) {
+                    $('#message1').html('Matching').css('color', 'green');
+                } else
+                    $('#message1').html('Not Matching').css('color', 'red');
+            });
         })
     </script>
 </head>
@@ -50,9 +50,31 @@
 <div class="row g-3 align-items-center col-auto text-dark">
     <form:form class="px-4 py-3" method="POST" action="/registration" modelAttribute="user">
         <div class="mb-3">
+            <form:label path="first_name" class="form-label">First Name:</form:label>
+            <form:errors path="first_name" class="row text-danger"/>
+            <form:input  path="first_name" class="form-control" required="required"/>
+        </div>
+        <div class="mb-3">
+            <form:label path="last_name" class="form-label">Last Name:</form:label>
+            <form:errors path="last_name" class="row text-danger"/>
+            <form:input  path="last_name" class="form-control" required="required"/>
+        </div>
+        <div class="mb-3">
             <form:label path="email" class="form-label">Email:</form:label>
             <form:errors path="email" class="row text-danger"/>
             <form:input type="email" path="email" class="form-control" required="required"/>
+        </div>
+        <div class="mb-3">
+            <form:label path="location" class="form-label">Location:</form:label>
+            <form:errors path="location" class="row text-danger"/>
+            <form:input  path="location" class="form-control" required="required"/>
+        </div>
+        <div class="mb-3">
+            <form:select path="state">
+            <c:forEach items="${states}" var="state">
+                <form:option value="${state}">${state}</form:option>
+            </c:forEach>
+            </form:select>
         </div>
         <div class="mb-3">
             <form:label path="password" class="form-label">Password:</form:label>
@@ -69,6 +91,5 @@
         <input type="submit" value="Register!" class="btn btn-info"/>
     </form:form>
 </div>
-
 </body>
 </html>
